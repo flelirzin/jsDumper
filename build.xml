@@ -1,0 +1,23 @@
+<project name="EVC Build file" default="" basedir=".">
+
+	
+	<target name="helloWorld">
+		<echo message="Hello World"/>
+	</target>
+
+	<target name="build">
+		<echo message="Build static resource"/>
+		<mkdir dir="${basedir}/build"/>
+		<delete>
+			<fileset dir="${basedir}/build">
+				<include name="*"/>
+			</fileset>
+		</delete>	
+		<zip destfile="${basedir}/build/jsDumper.zip">
+			<fileset dir="./src" includes="jsDumper.js"/>
+		</zip>
+		
+	</target>
+	
+	
+</project>
