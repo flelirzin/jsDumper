@@ -15,7 +15,7 @@
 					if ( shhd == false ) {
 						var mg = []; 
 						if ( mg = ct.match(/'^ > BEGIN > (.*)$'/) ) ct = mg[ 1 ]; 
-						else ( mg = ct.match(/'^ > BEGIN (.*)$'/) ) ct = mg[ 1 ];
+						else if ( mg = ct.match(/'^ > BEGIN (.*)$'/) ) ct = mg[ 1 ];
 					}
 					
 					if ( otc ) { console.log( ct ); } else { rvl.push( ct ); }
