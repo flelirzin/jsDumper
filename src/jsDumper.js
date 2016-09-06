@@ -15,6 +15,7 @@
 					if ( shhd == false ) {
 						var mg = []; 
 						if ( mg = ct.match(/'^ > BEGIN > (.*)$'/) ) ct = mg[ 1 ]; 
+						else ( mg = ct.match(/'^ > BEGIN (.*)$'/) ) ct = mg[ 1 ];
 					}
 					
 					if ( otc ) { console.log( ct ); } else { rvl.push( ct ); }
@@ -165,9 +166,9 @@
 				}
 				
 				mxlnct = mxln; // Keep max count
-				if ( shhd ) putToOut( 'START DUMP OBJ' );
+				if ( shhd ) putToOut( 'START jsDumper' );
 				recDumpObj( { 'BEGIN': o }, '	', 0, '' ); 
-				if ( shhd ) putToOut( 'END DUMP OBJ (LINE COUNT: '+(mxln - mxlnct)+')' );
+				if ( shhd ) putToOut( 'END jsDumper (LINE COUNT: '+(mxln - mxlnct)+')' );
 				doRemTracker(); 
 				
 				return rvl.join( '\n' );
