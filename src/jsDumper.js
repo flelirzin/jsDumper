@@ -1,3 +1,11 @@
+			"use strict";
+			
+			/*
+			 * 	Written by: flelirzin@gmail.com
+			 * 	Version 1.1 (2016-11-19): Support of strict mode
+			 * 	Version 1.0: First version
+			 */
+
 			var jsDumper = function( o, op ) {
 			
 				var mxln = 3000; // Max x Lines

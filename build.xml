@@ -1,6 +1,7 @@
-<project name="EVC Build file" default="" basedir=".">
+<project name="jsDumper Build file" default="" basedir=".">
 
 	
+	<property environment="env"/> 
 	<target name="helloWorld">
 		<echo message="Hello World"/>
 	</target>
@@ -13,11 +14,28 @@
 				<include name="*"/>
 			</fileset>
 		</delete>	
+		<mkdir dir="${basedir}/tst/tools/minify/tmp"/>
+		<delete>
+			<fileset dir="${basedir}/tst/tools/minify/tmp">
+				<include name="*"/>
+			</fileset>
+		</delete>	
+		<copy todir="${basedir}/tst/tools/minify/tmp" overwrite="true" file="${basedir}/src/jsDumper.js">
+		</copy>
+		<exec executable="java" dir="${basedir}/tst/tools/minify/tmp">
+			<arg value="-jar"/>
+			<arg value="${env.BUILD_TOOLS_DIR}/lib/yuicompressor-2.4.8.jar"/>
+			<!-- <arg value="-REMOVE ME-disable-optimizations"/> -->
+			<arg value="jsDumper.js"/>
+			<arg value="-o"/>
+			<arg value="jsDumper.min.js"/>
+		</exec>
 		<zip destfile="${basedir}/build/jsDumper.zip">
-			<fileset dir="./src" includes="jsDumper.js"/>
+			<fileset dir="${basedir}/tst/tools/minify/tmp" includes="jsDumper.min.js"/>
 		</zip>
 		
 	</target>
+
 	
 	
 </project>
