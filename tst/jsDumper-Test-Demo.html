@@ -1,12 +1,15 @@
 <html>
 	<head>
 		<script src="../src/jsDumper.js"></script>
+		<script src="../src/jsDumperLtng.js"></script>
 	</head>
 	<body>
 		<div id="showBox"></div>
+		<div id="showBoxLtng"></div>
 		<script>
 		var v = { a: 'a', b: 'b', c: { a: 'a', b: 'b' }, d: [ 'a', 'b', 'c' ] }; 
 		document.getElementById("showBox").innerHTML = "<pre>"+jsDumper( v, { ots: '' })+"</pre>";
+		document.getElementById("showBoxLtng").innerHTML = "<pre>"+myJsDumper( v, { ots: '' })+"</pre>";
 		</script>
 	</body>
 	

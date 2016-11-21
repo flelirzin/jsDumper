@@ -1,3 +1,4 @@
+(function(wdw){
 			"use strict";
 			
 			/*
@@ -184,4 +185,7 @@
 				
 				return rvl.join( '\n' );
 			}
+			
+			wdw.myJsDumper = jsDumper;
 
+})(window);
